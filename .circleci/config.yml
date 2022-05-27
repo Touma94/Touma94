@@ -1,26 +1,146 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
-version: 2.1
+private static void tabDeUnADix()
+{
+Console.WriteLine("Impression de toutes les tables de multiplications de 1 à 10.");
+int i = 1;
+while (i <= 10)
+{
+for (int j = 1; j <= 10; j++)
+{
+Console.Write((j * i) + " ");
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
-jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
-    steps:
-      - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+}
+Console.WriteLine();
+i++;
+}
+Console.ReadKey();
+}
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  say-hello-workflow:
-    jobs:
-      - say-hello
+
+private static void tabDeUnADixImpair()
+{
+Console.WriteLine();
+Console.WriteLine("Impression des resultats impairs ");
+int i = 1;
+while (i <= 10)
+{
+for (int j = 1; j <= 10; j++)
+{
+if (((i * j) % 2) == 1)
+{
+Console.Write((j * i) + " ");
+}
+}
+Console.WriteLine();
+i++;
+}
+Console.ReadKey();
+}
+
+private static void multiplicationTableUserParameter()
+{
+int i, nombre;
+Console.Write("Entrez un nombre : ");
+nombre = Convert.ToInt32(Console.ReadLine());
+Console.Write("\n");
+for (i = 1; i <= 10; i++)
+{
+Console.Write("{0} X {1} = {2} \n", nombre, i, nombre * i);
+}
+}
+static bool isPrime(int nombre)
+{
+if (nombre == 1 || nombre == 0) return false;
+
+for (int i = 2; i < nombre; i++)
+{
+if (nombre % i == 0) return false;
+}
+return true;
+}
+
+private static void Prime()
+{
+Console.WriteLine();
+Console.WriteLine("Choisissez un nombre premier inférieur à 1000.");
+Console.WriteLine();
+
+int maximum = 1000;
+
+for (int i = 1; i <= maximum; i++)
+{
+
+if (isPrime(i))
+{
+Console.Write(i + " ");
+}
+}
+Console.WriteLine();
+}
+private static void Fibonacci()
+{
+Console.WriteLine();
+long premierNombre = 0, deuxiemeNombre = 1, troisiemeNombre, i, nombre;
+Console.Write("Entrez jusqu'à quel nombre voulez-vous la suite de Fibonacci: ");
+nombre = Convert.ToInt32(Console.ReadLine());
+
+if (nombre == 0)
+{
+Console.WriteLine(premierNombre);
+}
+else if (nombre == 1)
+{
+Console.WriteLine(deuxiemeNombre);
+}
+else
+{
+Console.Write(premierNombre + " " + deuxiemeNombre + " "); 
+for (i = 2; i < nombre; ++i) 
+{
+troisiemeNombre = premierNombre + deuxiemeNombre;
+Console.Write(troisiemeNombre + " ");
+premierNombre = deuxiemeNombre;
+deuxiemeNombre = troisiemeNombre;
+}
+}
+Console.WriteLine();
+}
+private static void Factorial()
+{
+Console.WriteLine();
+int i, factorial = 1, nombre;
+Console.Write("Entrez le factoriel que vous désirez calculer : ");
+nombre = int.Parse(Console.ReadLine());
+for (i = 1; i <= nombre; i++)
+{
+factorial = factorial * i;
+}
+Console.Write("Le Factoriel de " + nombre + " est : " + factorial);
+}
+/*
+What would happen if you tried to calculate 420 000! ?
+The result of this calculation would be 0 if we try to calculate because an int number is coded on 32 bit.
+
+What is recursive function ?
+A recursive function is simply a function that will call itself in its code as long as the function has not reached its stop condition.
+*/
+private static void TryCatch()
+{
+Console.WriteLine("Try Catch Function");
+for (int i = -3; i < 4; i++)
+{
+Console.WriteLine();
+
+try
+{
+//y = 10 / (x²-4)
+int y = 10/ (int)(Math.Pow(i, 2) - 4);
+Console.WriteLine(y);
+
+}
+catch (DivideByZeroException ex)
+{
+Console.WriteLine("Tentative de division par 0. {0}", ex.Message);
+}
+}
+
+}
